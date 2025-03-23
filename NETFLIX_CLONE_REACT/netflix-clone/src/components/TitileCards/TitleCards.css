@@ -1,0 +1,149 @@
+.title-cards {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    position: relative;
+    padding: 0; /* Remove padding to align arrows to edges */
+}
+
+.title-cards h2 {
+    margin-bottom: 8px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.card-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.card-list {
+    display: flex;
+    gap: 10px;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+}
+
+.card-list::-webkit-scrollbar {
+    display: none;
+}
+
+.card-list img {
+    width: 200px; /* Fixed width for cards */
+    height: 120px; /* Fixed height for cards */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    object-fit: cover; /* Ensure images fill the card */
+}
+
+.card-list .card {
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 auto; /* Prevent flex shrinking */
+    height: 120px; /* Ensure all cards have the same height */
+}
+
+.card-list .card p {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    text-decoration: none;
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.card-list .card:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.card-list .card:hover p {
+    opacity: 1;
+}
+
+.scroll-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    width: 40px; /* Square shape: fixed width */
+    height: 120px; /* Match the height of the title cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    border-radius: 0; /* Square shape: no border radius */
+    opacity: 0; /* Hidden by default */
+}
+
+.card-container:hover .scroll-button {
+    opacity: 1; /* Show on hover */
+}
+
+.scroll-button.left {
+    left: 0; /* Align to the left edge */
+}
+
+.scroll-button.right {
+    right: 0; /* Align to the right edge */
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 800px) {
+    .title-cards {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }
+    .title-cards h2 {
+        font-size: 20px;
+    }
+    .card-list img {
+        width: 150px;
+        height: 90px;
+    }
+    .card-list .card {
+        height: 90px; /* Ensure consistent height on smaller screens */
+    }
+    .scroll-button {
+        height: 90px; /* Match the height of the title cards on smaller screens */
+    }
+    .card-list p {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 500px) {
+    .title-cards h2 {
+        font-size: 18px;
+    }
+    .card-list img {
+        width: 120px;
+        height: 70px;
+    }
+    .card-list .card {
+        height: 70px; /* Ensure consistent height on smaller screens */
+    }
+    .scroll-button {
+        height: 70px; /* Match the height of the title cards on smaller screens */
+    }
+    .card-list p {
+        font-size: 10px;
+    }
+}
